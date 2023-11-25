@@ -1,0 +1,4 @@
+{:paths ["src"]
+ :deps {com.github.seancorfield/next.jdbc {:mvn/version "1.3.894"}}
+ :aliases {:dev {:extra-paths ["test"]
+                 :extra-deps {org.hsqldb/hsqldb {:mvn/version "2.7.2"}}}}}
