@@ -37,7 +37,7 @@
             next (first items)]
         (if (= "AS" (some-> next str str/upper-case))
           (let [[alias & items] (rest items)]
-            (recur (conj out [:as item alias])
+            (recur (conj out [::as item alias])
                    items))
           (recur (conj out item) items))))))
 
@@ -62,7 +62,7 @@
              (symbol? p)
              (recur (more-sql (symbol->sql p)) params parts)
 
-             (and (vector? p) (= :as (first p)))
+             (and (vector? p) (= ::as (first p)))
              (let [[sql* params*] (combine " AS " (rest p))]
                (recur (more-sql sql*)
                       (into params params*)

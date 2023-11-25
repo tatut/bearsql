@@ -23,6 +23,7 @@ argument.
 ## Syntax rules
 
 - Any symbol is converted to SQL as is (with dashes converted to underscores)
+- Symbol `as` is special and allows aliasing
 - Vectors are turned into comma separated lists (because comma is whitespace in Clojure)
 - Lists are recursively converted and surrounded with parenthesis
 - Deref (`@form`) escapes back to Clojure code and uses that value as SQL query parameter
