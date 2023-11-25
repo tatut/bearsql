@@ -4,6 +4,8 @@
 
 Bare words SQL macro for Clojure.
 
+![BearSQL logo](bearsql.png)
+
 What if you could **just write SQL** as is and still retain safety of parameters.
 With BearSQL you can!
 
