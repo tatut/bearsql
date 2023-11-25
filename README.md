@@ -29,4 +29,5 @@ argument.
 - Vectors are turned into comma separated lists (because comma is whitespace in Clojure)
 - Lists are recursively converted and surrounded with parenthesis
 - Deref (`@form`) escapes back to Clojure code and uses that value as SQL query parameter
+- Strings are passed in as SQL-quoted strings
 - Any other Clojure value is used as input parameter as is

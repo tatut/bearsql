@@ -86,7 +86,11 @@
                       (into params params*)
                       parts))
 
-            ;; Any other Clojure value, pass as is into query parameters
+             (string? p)
+             (recur (more-sql (str "'" (str/replace p #"'" "''") "'"))
+                    params parts)
+
+             ;; Any other Clojure value, pass as is into query parameters
              :else
              (recur (more-sql "?")
                     (conj params p)

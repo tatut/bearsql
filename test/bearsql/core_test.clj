@@ -104,3 +104,9 @@
             from [product as p, category as c]
             where p.category-id = c.id
             and p.id = 3))))
+
+(deftest calling-function
+  (is (= [{:PRODUCTS "Fine leather jacket, Boots of escaping, Blue pants"}]
+         (q select group-concat (distinct p.name order by p.name desc separator ", ") as products
+            from product p
+            where p.category-id = 1))))
