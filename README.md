@@ -7,14 +7,14 @@ With BearSQL you can!
 ```clojure
 ;; Using ambient dynamic connection
 (let [id 1]
-  (q select name from product where id = 1)
+  (q select name from product where id = 1))
 ;; => [{:product/name "Fine leather jacket"}]
 ```
 
 BearSQL macros provide a minimal symbols to SQL conversion at compile time
-while still allowing you to have runtime input parameters. 
+while still allowing you to have runtime input parameters.
 
-You can also pass in the database by using a configuration map as the first 
+You can also pass in the database by using a configuration map as the first
 argument.
 
 ## Syntax rules
