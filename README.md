@@ -10,7 +10,7 @@ With BearSQL you can!
 ```clojure
 ;; Using ambient dynamic connection
 (let [id 1]
-  (q select name from product where id = 1))
+  (q select name from product where id = @id))
 ;; => [{:product/name "Fine leather jacket"}]
 ```
 
