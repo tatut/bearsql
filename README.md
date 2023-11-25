@@ -1,5 +1,8 @@
 # BearSQL
-Bare words SQL macro for Clojure
+
+![test workflow](https://github.com/tatut/bearsql/actions/workflows/test.yml/badge.svg)
+
+Bare words SQL macro for Clojure.
 
 What if you could **just write SQL** as is and still retain safety of parameters.
 With BearSQL you can!
