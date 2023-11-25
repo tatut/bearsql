@@ -32,6 +32,7 @@
      from item it join category cat on it.category-id=cat.id)
 
   "
+  {:clj-kondo/ignore [:unresolved-symbol]}
   [& opts-and-query]
   (let [[opts query] (if (map? (first opts-and-query))
                        [(first opts-and-query) (rest opts-and-query)]
@@ -48,7 +49,7 @@
 
   Example:
   (= 1 (q1 select id from items where id = 1))
-
   "
+  {:clj-kondo/ignore [:unresolved-symbol]}
   [& args]
   `(-> (q ~@args) first vals first))
