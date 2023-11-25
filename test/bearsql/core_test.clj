@@ -99,7 +99,8 @@
             where p.id = 1))))
 
 (deftest multiple-from
-  (is (= [:Foo]
+  (is (= [{:CATEGORY/NAME "widgets" :PRODUCT/NAME "Illudium Q-36 explosive space modulator"}]
          (q select [c.name p.name]
             from [product as p, category as c]
-            where p.category-id = c.id))))
+            where p.category-id = c.id
+            and p.id = 3))))
