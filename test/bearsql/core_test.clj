@@ -110,3 +110,13 @@
          (q select group-concat (distinct p.name order by p.name desc separator ", ") as products
             from product p
             where p.category-id = 1))))
+
+(deftest raw-part
+  (is (= ["Acme earthquake pills"
+          "Log from Blammo!"
+          "Powerthirst!"]
+         (mapv :PRODUCT/N
+               (q select [:raw "name as n"]
+                  from product p
+                  where [:raw "p.category_id in (?,?)" 2 3]
+                  order by n asc)))))

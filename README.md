@@ -26,8 +26,11 @@ argument.
 
 - Any symbol is converted to SQL as is (with dashes converted to underscores)
 - Symbol `as` is special and allows aliasing
-- Vectors are turned into comma separated lists (because comma is whitespace in Clojure)
+- Vectors are turned into comma separated lists (because comma is whitespace in Clojure) except special (see below)
 - Lists are recursively converted and surrounded with parenthesis
 - Deref (`@form`) escapes back to Clojure code and uses that value as SQL query parameter
 - Strings are passed in as SQL-quoted strings
 - Any other Clojure value is used as input parameter as is
+- Vector that begins with `:raw` is special and can be used to include any raw SQL fragment and parameters into the query
+
+See unit tests for examples of usage.

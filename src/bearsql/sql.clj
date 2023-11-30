@@ -62,6 +62,12 @@
              (symbol? p)
              (recur (more-sql (symbol->sql p)) params parts)
 
+             (and (vector? p) (= :raw (first p)))
+             (let [[_ sql* & params*] p]
+               (recur (more-sql sql*)
+                      (into params params*)
+                      parts))
+
              (and (vector? p) (= ::as (first p)))
              (let [[sql* params*] (combine " AS " (rest p))]
                (recur (more-sql sql*)
@@ -74,7 +80,7 @@
                       (into params params*)
                       parts))
 
-            ;; @form, pass the form into query parameters
+             ;; @form, pass the form into query parameters
              (and (seq? p) (= 'clojure.core/deref (first p)))
              (recur (more-sql "?")
                     (conj params (second p))
